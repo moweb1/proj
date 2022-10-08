@@ -219,6 +219,7 @@ footer {
 .contact-page {
     background-image: url(../../src/contact-image.jpg);
     background-repeat: no-repeat;
+    background-size: contain;
     background-attachment: fixed;
     background-position: top left;
 }
