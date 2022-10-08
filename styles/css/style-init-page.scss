@@ -1,0 +1,74 @@
+@import url(./style-shared.css);
+
+$viewport-height: 100vh;
+
+$source-code-pro: 'Source-Code-Pro', monospace;
+
+body {
+    background: black;
+    margin: 0;
+    height: $viewport-height;
+    display: grid;
+    place-content: center;
+    .title-area {
+        min-width: 40vw;
+        min-height: 40vh;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: black;
+        border-radius: 1%;
+    }
+}
+
+.init-page-title {
+    font-family: $source-code-pro;
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    color: white;
+}
+
+.init-page-title::before, .init-page-title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+}
+
+.init-page-title::before {
+    background: black;
+    animation: typewriter-animation 1.5s steps(7) 1s forwards;
+}
+
+.init-page-title::after {
+    background: white;
+    width: 0.23rem;
+    animation: typewriter-animation 1.5s steps(7) 1s forwards, blink 0.75s steps(7) infinite;
+}
+
+@media (max-width: 600px) {
+    body {
+        .title-area {
+            min-width: 60vw;
+            min-height: 30vh;
+        }
+    }
+}
+
+@keyframes typewriter-animation {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
