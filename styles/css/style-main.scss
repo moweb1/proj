@@ -343,6 +343,7 @@ footer {
                         box-shadow: none;
                     }
                     .caption {
+                        width: $viewport-width;;
                         z-index: 2;
                         position: absolute;
                         bottom: 0;
