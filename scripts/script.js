@@ -5,7 +5,7 @@ $(function($) {
     var $navbarLinks = $('#navbar-links');
     var $topBar = $('#top-bar');
     var $media = $('.media');
-    var $overlay = $('.scroller-item::after');
+    var $scrollerItem = $('.scroller-item');
     var $captions = $('.caption');
     var $body = $($('body')[0]);
     var $footer = $($("footer")[0]);
@@ -34,6 +34,24 @@ $(function($) {
         $($captions[index]).on('mouseout', () => {
             item.pause();
             item.currentTime = 0;
+        });
+    });
+
+    /* Dim unhovered items */
+    $.each($scrollerItem, function(index,item) {
+        $(item).on('mouseover', ()=> {
+            $.each($scrollerItem, function(index2, item2) {
+                if (index2!=index) {
+                    $(item2).css('opacity',0.8);
+                }
+            });
+        });
+        $(item).on('mouseout', ()=> {
+            $.each($scrollerItem, function(index2, item2) {
+                if (index2!=index) {
+                    $(item2).css('opacity',1);
+                }
+            });
         });
     });
 
